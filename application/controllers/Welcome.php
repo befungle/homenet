@@ -136,6 +136,16 @@ class Welcome extends CI_Controller {
         $this->db->replace('devices', $data);
 
     }
+    public function json_test(){
+	    echo "{
+  \"sensor\": \"gps\",
+  \"time\": 1351824120,
+  \"data\": [
+    48.75608,
+    2.302038
+  ]
+}";
+    }
     public function rgb2hex($rgb) {
         $hex = "";
         $hex .= str_pad(dechex($rgb[0]), 2, "0", STR_PAD_LEFT);

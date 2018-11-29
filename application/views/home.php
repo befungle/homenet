@@ -5,12 +5,12 @@
     <title>Cre8ive HomeNet</title>
     <!--    Javascript-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="/homenet/assets/spectrum.js"></script>
+    <script src="/assets/spectrum.js"></script>
 
     <!--    CSS -->
-    <link rel="stylesheet" href="/homenet/assets/foundation-6.5.1/css/foundation.min.css">
-    <link rel='stylesheet' href='/homenet/assets/spectrum.css'/>
-    <link rel='stylesheet' href='/homenet/assets/home.css'/>
+    <link rel="stylesheet" href="/assets/foundation-6.5.1/css/foundation.min.css">
+    <link rel='stylesheet' href='/assets/spectrum.css'/>
+    <link rel='stylesheet' href='/assets/home.css'/>
 
 
     <!--    iOS Settings-->
@@ -204,7 +204,7 @@
     });
 </script>
 
-<script src="/homenet/assets/iot.js"></script>
+<script src="/assets/iot.js"></script>
 
 
 </body>
