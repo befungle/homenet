@@ -137,14 +137,14 @@ class Welcome extends CI_Controller {
 
     }
     public function json_test(){
-	    echo '{
+	    echo "{
   \"sensor\": \"gps\",
   \"time\": 1351824120,
   \"data\": [
     48.75608,
     2.302038
   ]
-}';
+}";
     }
     public function rgb2hex($rgb) {
         $hex = "";
