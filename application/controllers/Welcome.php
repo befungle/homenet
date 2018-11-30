@@ -59,8 +59,6 @@ class Welcome extends CI_Controller {
         $record = $query->result_array();
         $object = json_encode($record);
         echo $object;
-        //print_r($record);
-        echo $record[0]["action"]." ".$record[0]["red"]." ".$record[0]["green"]." ".$record[0]["blue"];
     }
 
 
