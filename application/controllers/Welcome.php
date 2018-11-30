@@ -51,15 +51,25 @@ class Welcome extends CI_Controller {
         $data = array('garage'=>$record[0],'oillamp'=>$record2[0],'dispcase1'=>$record3[0],'dispcase2'=>$record4[0]);
 		$this->load->view('home',$data);
 	}
-	public function garage(){
+
+	public function getDevice($device){
         $this->db->select('*');
-        $this->db->where(array('device' => "garage"));
+        $this->db->where(array('device' => $device));
         $query = $this->db->get('devices');
         $record = $query->result_array();
+        $object = json_encode($record);
+        echo $object;
         //print_r($record);
         echo $record[0]["action"]." ".$record[0]["red"]." ".$record[0]["green"]." ".$record[0]["blue"];
+    }
+
+
+	public function garage(){
+
 
     }
+
+
     public function dispcase1(){
         $this->db->select('*');
         $this->db->where(array('device' => "dispcase1"));
