@@ -58,6 +58,7 @@ class Welcome extends CI_Controller {
         $query = $this->db->get('devices');
         $record = $query->result_array();
         $object = json_encode($record[0]);
+        $object = addslashes($object);
         echo $object;
     }
 
