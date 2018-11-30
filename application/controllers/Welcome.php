@@ -53,7 +53,7 @@ class Welcome extends CI_Controller {
 	}
 
 	public function getDevice($device){
-        $this->db->select('a,p,s');
+        $this->db->select('a,p');
         $this->db->where(array('device' => $device));
         $query = $this->db->get('devices');
         $record = $query->result_array();
