@@ -58,7 +58,7 @@ class Welcome extends CI_Controller {
         $query = $this->db->get('devices');
         $record = $query->result_array();
         print_r($record);
-        foreach($record as $value){
+        foreach($record[0] as $value){
             echo $value." ";
         }
 
