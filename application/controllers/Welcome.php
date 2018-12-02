@@ -57,9 +57,10 @@ class Welcome extends CI_Controller {
         $this->db->where(array('device' => $device));
         $query = $this->db->get('devices');
         $record = $query->result_array();
-        $object = json_encode($record[0]);
-        //$object = addslashes($object);
-        echo $object;
+        foreach($record as $value){
+            echo $value." ";
+        }
+
     }
 
 
