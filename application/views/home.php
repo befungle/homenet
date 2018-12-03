@@ -26,21 +26,6 @@
         <h2>Control Panel</h2>
     </div>
 </div>
-<div class="grid-x menu" id="menu">
-    <div class="large-6 medium-6 small-6 device" onclick="active('garagediv');">
-        Garage
-    </div>
-    <div class="large-6 medium-6 small-6 device" onclick="active('oillampdiv');">
-        Oil Lamp
-    </div>
-    <div class="large-6 medium-6 small-6 device" onclick="active('dispcase1div');">
-        Display Case 1
-    </div>
-    <div class="large-6 medium-6 small-6 device" onclick="active('dispcase2div');">
-        Display Case 2
-    </div>
-</div>
-
 <div class="grid-x item garagediv" id="garagediv">
     <div class="large-12 medium-12 small-12">
         <div class="grid-x">
@@ -116,92 +101,135 @@
 
     </div>
 </div>
+
+<div class="grid-x menu" id="menu">
+    <?php
+    foreach($devices as $item){
+        ?>
+        <div class="large-6 medium-6 small-6 device" onclick="active('<?php echo $item["device"]; ?>div');">
+            <?php echo $item["device"]; ?>
+            <script>
+                $("#<?php echo $item["device"]; ?>").spectrum({
+                    color: "#<?PHP echo $item['HEX']; ?>",
+                    flat: true,
+                    showInput: false,
+                    showPalette: true,
+                    palette: [
+                        ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
+                            'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(33,28,0)']
+                    ],
+                    showPaletteOnly: false,
+                    showSelectionPalette: true,
+                    cancelText: '',
+                    chooseText: 'set',
+                    move: function (tinycolor) {
+                        updateColor("<?php echo $item["did"]; ?>", "<?php echo $item["device"]; ?>")
+                    },
+                });
+            </script>
+        </div>
+        <?php
+    }
+    ?>
+
+<!--    <div class="large-6 medium-6 small-6 device" onclick="active('oillampdiv');">-->
+<!--        Oil Lamp-->
+<!--    </div>-->
+<!--    <div class="large-6 medium-6 small-6 device" onclick="active('dispcase1div');">-->
+<!--        Display Case 1-->
+<!--    </div>-->
+<!--    <div class="large-6 medium-6 small-6 device" onclick="active('dispcase2div');">-->
+<!--        Display Case 2-->
+<!--    </div>-->
+</div>
+
+
 <script>
-    $("#garage").spectrum({
-        color: "#<?PHP echo $garage['HEX']; ?>",
-        flat: true,
-        showInput: false,
-        showPalette: true,
-        palette: [
-            ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
-                'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(33,28,0)']
-        ],
-        showPaletteOnly: false,
-        showSelectionPalette: true,
-        cancelText: '',
-        chooseText: 'set',
-        move: function (tinycolor) {
-            update("garage", "garage", "color")
-        },
-    });
-    $("#dispcase1").spectrum({
-        color: "#<?PHP echo $dispcase1['HEX']; ?>",
-        flat: true,
-        showInput: false,
-        showPalette: true,
-        palette: [
-            ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
-                'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(33,28,0)']
-        ],
-        showPaletteOnly: false,
-        showSelectionPalette: true,
-        cancelText: '',
-        chooseText: 'set',
-        move: function (tinycolor) {
-            update("dispcase1", "dispcase1", "color")
-        },
-    });
-    $("#dispcase2").spectrum({
-        color: "#<?PHP echo $dispcase2['HEX']; ?>",
-        flat: true,
-        showInput: false,
-        showPalette: true,
-        palette: [
-            ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
-                'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(33,28,0)']
-        ],
-        showPaletteOnly: false,
-        showSelectionPalette: true,
-        cancelText: '',
-        chooseText: 'set',
-        move: function (tinycolor) {
-            update("dispcase2", "dispcase2", "color")
-        },
-    });
-    $("#oillamp").spectrum({
-        color: "#<?PHP echo $oillamp['HEX']; ?>",
-        flat: true,
-        showInput: false,
-        showPalette: true,
-        palette: [
-            ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
-                'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(29,19,137)']
-        ],
-        showPaletteOnly: false,
-        showSelectionPalette: true,
-        cancelText: '',
-        chooseText: 'set',
-        move: function (tinycolor) {
-            update("oillamp", "oillamp", "color")
-        },
-    });
-    $("#oillamp2").spectrum({
-        color: "#<?PHP echo $oillamp['HEX']; ?>",
-        flat: true,
-        showInput: false,
-        showPalette: true,
-        palette: [
-            ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
-                'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(230,15,15)']
-        ],
-        showPaletteOnly: false,
-        showSelectionPalette: true,
-        cancelText: '',
-        chooseText: 'set',
-        move: function (tinycolor) {
-            update("oillamp2", "oillamp", "color2")
-        },
-    });
+    //$("#garage").spectrum({
+    //    color: "#<?PHP //echo $garage['HEX']; ?>//",
+    //    flat: true,
+    //    showInput: false,
+    //    showPalette: true,
+    //    palette: [
+    //        ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
+    //            'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(33,28,0)']
+    //    ],
+    //    showPaletteOnly: false,
+    //    showSelectionPalette: true,
+    //    cancelText: '',
+    //    chooseText: 'set',
+    //    move: function (tinycolor) {
+    //        update("garage", "garage", "color")
+    //    },
+    //});
+    //$("#dispcase1").spectrum({
+    //    color: "#<?PHP //echo $dispcase1['HEX']; ?>//",
+    //    flat: true,
+    //    showInput: false,
+    //    showPalette: true,
+    //    palette: [
+    //        ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
+    //            'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(33,28,0)']
+    //    ],
+    //    showPaletteOnly: false,
+    //    showSelectionPalette: true,
+    //    cancelText: '',
+    //    chooseText: 'set',
+    //    move: function (tinycolor) {
+    //        update("dispcase1", "dispcase1", "color")
+    //    },
+    //});
+    //$("#dispcase2").spectrum({
+    //    color: "#<?PHP //echo $dispcase2['HEX']; ?>//",
+    //    flat: true,
+    //    showInput: false,
+    //    showPalette: true,
+    //    palette: [
+    //        ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
+    //            'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(33,28,0)']
+    //    ],
+    //    showPaletteOnly: false,
+    //    showSelectionPalette: true,
+    //    cancelText: '',
+    //    chooseText: 'set',
+    //    move: function (tinycolor) {
+    //        update("dispcase2", "dispcase2", "color")
+    //    },
+    //});
+    //$("#oillamp").spectrum({
+    //    color: "#<?PHP //echo $oillamp['HEX']; ?>//",
+    //    flat: true,
+    //    showInput: false,
+    //    showPalette: true,
+    //    palette: [
+    //        ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
+    //            'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(29,19,137)']
+    //    ],
+    //    showPaletteOnly: false,
+    //    showSelectionPalette: true,
+    //    cancelText: '',
+    //    chooseText: 'set',
+    //    move: function (tinycolor) {
+    //        update("oillamp", "oillamp", "color")
+    //    },
+    //});
+    //$("#oillamp2").spectrum({
+    //    color: "#<?PHP //echo $oillamp['HEX']; ?>//",
+    //    flat: true,
+    //    showInput: false,
+    //    showPalette: true,
+    //    palette: [
+    //        ['black', 'rgb(104,0,0)', 'rgb(0,78,104)',
+    //            'rgb(161, 122, 0);', 'rgb(52, 139, 32);', 'rgb(230,15,15)']
+    //    ],
+    //    showPaletteOnly: false,
+    //    showSelectionPalette: true,
+    //    cancelText: '',
+    //    chooseText: 'set',
+    //    move: function (tinycolor) {
+    //        update("oillamp2", "oillamp", "color2")
+    //    },
+    //});
 </script>
 
 <script src="/assets/iot.js"></script>

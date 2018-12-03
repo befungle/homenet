@@ -8,13 +8,33 @@ $(".header").click(function(){
     $('.item').hide();
 })
 
-function update(did,device,action){
-    var color = $("#"+did).spectrum("get").toRgb();
+function updateColor(did,device){
+    var color = $("#"+device).spectrum("get").toRgb();
     //alert(color.r);
-    $.get( "/homenet/index.php?/welcome/"+device+"write/"+action+"/"+color.r+"/"+color.g+"/"+color.b, function( data ) {
-        $( ".result" ).html( data );
+    var data = $("#"+device).spectrum("get").toRgb();
+    var devdata = {
+        "did":did,
+    };
+    var pushdata = $.extend({},devdata,data);
+    console.log(pushdata);
 
-    });
+    $.ajax(
+        {
+            "url": "/welcome/putDeviceColor",
+            "type": "POST",
+            "data": pushdata,
+            "dataType": "json",
+            "crossDomain": true,
+            success: function (res) {
+                //res = JSON.parse(res);
+                //console.log(res.html);
+
+            },
+            error: function (res) {
+                console.error("ERROR!");
+                console.log(res);
+            }
+        });
 }
 function cylon(device){
     $.get( "/homenet/index.php?/welcome/"+device+"write/cylon/0/0/0", function( data ) {

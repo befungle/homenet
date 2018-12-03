@@ -2,54 +2,30 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+    public $input_data;
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+    public function __construct()
+    {
+        header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+        parent::__construct();
+        $this->input_data = $this->input->post();
+    }
+
+
+
 	public function index()
 	{
         $this->db->select('*');
-        $this->db->where(array('device' => "garage"));
+        //$this->db->where(array('device' => "garage"));
         $query = $this->db->get('devices');
         $record = $query->result_array();
-        $rgb = array($record[0]["red"],$record[0]["green"],$record[0]["blue"]);
-        $record[0]["HEX"] = $this->rgb2hex($rgb);
-
-        $this->db->select('*');
-        $this->db->where(array('device' => "oillamp"));
-        $query = $this->db->get('devices');
-        $record2 = $query->result_array();
-        $rgb = array($record2[0]["red"],$record2[0]["green"],$record2[0]["blue"]);
-        $record2[0]["HEX"] = $this->rgb2hex($rgb);
-
-        $this->db->select('*');
-        $this->db->where(array('device' => "dispcase1"));
-        $query = $this->db->get('devices');
-        $record3 = $query->result_array();
-        $rgb = array($record3[0]["red"],$record3[0]["green"],$record3[0]["blue"]);
-        $record3[0]["HEX"] = $this->rgb2hex($rgb);
-
-        $this->db->select('*');
-        $this->db->where(array('device' => "dispcase2"));
-        $query = $this->db->get('devices');
-        $record4 = $query->result_array();
-        $rgb = array($record4[0]["red"],$record4[0]["green"],$record4[0]["blue"]);
-        $record4[0]["HEX"] = $this->rgb2hex($rgb);
-
-        $data = array('garage'=>$record[0],'oillamp'=>$record2[0],'dispcase1'=>$record3[0],'dispcase2'=>$record4[0]);
-		$this->load->view('home',$data);
+        foreach($record as $key=>$value){
+            $rgb = array($record[$key]["r"],$record[0]["g"],$record[0]["b"]);
+            $record[$key]["HEX"] = $this->rgb2hex($rgb);
+        }
+        $data = array('devices'=>$record);
+        $this->load->view('home',$data);
 	}
 
 	public function getDevice($device){
@@ -61,7 +37,13 @@ class Welcome extends CI_Controller {
         foreach($record[0] as $value){
             echo $value." ";
         }
+    }
 
+    public function putDeviceColor(){
+        //print_r($this->input->post());
+        $this->db->set($this->input->post());
+        $this->db->where('did', $this->input->post()["did"]);
+        $this->db->update('devices');
     }
 
 
