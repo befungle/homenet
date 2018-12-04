@@ -36,8 +36,8 @@ foreach($devices as $item) {
                 <div class="large-12 medium-12 small-12"><h1><?php echo $item["device"]; ?></h1></div>
                 <div class="large-12 medium-12 small-12">
                     <h2>Animations</h2>
-                    <button onclick="setAnimation('<?php echo $item["did"]; ?>,'aqua')">Aqua</button>
-                    <button onclick="setAnimation('<?php echo $item["did"]; ?>,'siren')">Siren</button>
+                    <button onclick="setAnimation('<?php echo $item["did"]; ?>','aqua')">Aqua</button>
+                    <button onclick="setAnimation('<?php echo $item["did"]; ?>','siren')">Siren</button>
                 </div>
             </div>
         </div>
