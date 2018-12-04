@@ -45,7 +45,7 @@ foreach($devices as $item) {
             </div>
         </div>
         <div class="large-12 medium-12 small-12">
-            <input type='text' id="garage"/>
+            <input type='text' id="<?php echo $item["device"]; ?>"/>
         </div>
     </div>
     <?php
