@@ -36,6 +36,30 @@ function updateColor(did,device){
             }
         });
 }
+function setAnimation(did,ani){
+    var pushdata = {
+        "did":did,
+        "act":ani
+    };
+
+    $.ajax(
+        {
+            "url": "/welcome/putDeviceColor",
+            "type": "POST",
+            "data": pushdata,
+            "dataType": "json",
+            "crossDomain": true,
+            success: function (res) {
+                //res = JSON.parse(res);
+                //console.log(res.html);
+
+            },
+            error: function (res) {
+                console.error("ERROR!");
+                console.log(res);
+            }
+        });
+}
 function cylon(device){
     $.get( "/homenet/index.php?/welcome/"+device+"write/cylon/0/0/0", function( data ) {
         $( ".result" ).html( data );

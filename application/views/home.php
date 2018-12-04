@@ -26,81 +26,90 @@
         <h2>Control Panel</h2>
     </div>
 </div>
-<div class="grid-x item garagediv" id="garagediv">
-    <div class="large-12 medium-12 small-12">
-        <div class="grid-x">
-            <div class="large-12 medium-12 small-12"><h1>Garage Door</h1></div>
-            <div class="large-12 medium-12 small-12">
-                <h2>Animations</h2>
-                <button onclick="cylon('garage');">Cylon</button>
+
+<?php
+foreach($devices as $item) {
+    ?>
+    <div class="grid-x item <?php echo $item["device"]; ?>div" id="<?php echo $item["device"]; ?>div">
+        <div class="large-12 medium-12 small-12">
+            <div class="grid-x">
+                <div class="large-12 medium-12 small-12"><h1><?php echo $item["device"]; ?></h1></div>
+                <div class="large-12 medium-12 small-12">
+                    <h2>Animations</h2>
+                    <button onclick="setAnimation('<?php echo $item["did"]; ?>,'aqua')">Aqua</button>
+                    <button onclick="setAnimation('<?php echo $item["did"]; ?>,'siren')">Siren</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="large-12 medium-12 small-12">
-        <input type='text' id="garage"/>
-    </div>
-</div>
-
-<div class="grid-x item" id="dispcase1div">
-    <div class="large-12 medium-12 small-12">
-        <h1>Display Case 1</h1>
-    </div>
-    <div class="large-12 medium-12 small-12">
-        <h2>Animations</h2>
-        <button onclick="cylon('dispcase1');">Cylon</button>
-    </div>
-    <div class="large-12 medium-12 small-12">
-        <input type='text' id="dispcase1"/>
-    </div>
-</div>
-
-<div class="grid-x item" id="dispcase2div">
-    <div class="large-12 medium-12 small-12">
-        <div class="grid-x">
-            <div class="large-12 medium-12 small-12">
-                <h1>Display Case 2</h1>
-            </div>
-            <div class="large-12 medium-12 small-12">
-                <h2>Animations</h2>
-                <button onclick="cylon('dispcase2');">Cylon</button>
-            </div>
+        <div class="large-12 medium-12 small-12">
+            <input type='text' id="garage"/>
         </div>
     </div>
-    <div class="large-12 medium-12 small-12">
-        <input type='text' id="dispcase2"/>
-    </div>
-</div>
+    <?php
+}
+?>
 
-<div class="grid-x item" id="oillampdiv">
-    <div class="large-12 medium-12 small-12">
-        <div class="grid-x">
-            <div class="large-12 medium-12 small-12">
-                <h1>Oil LAMP</h1>
-            </div>
-            <div class="large-12 medium-12 small-12">
-                <h2>Animations</h2>
-                <button onclick="spotlight();">Spotlight</button>
-                <button onclick="dance();">Dance</button>
-                <button onclick="horror('oillamp');">Horror</button>
-                <button onclick="disco('oillamp');">Disco</button>
-                <br>
-                Animation Speed<br>
-                <input id="speed" type="range" min="5" max="300" value="30" onchange="speedupdate(this);">
-            </div>
 
-        </div>
-    </div>
-    <div class="large-6 medium-6 small-6">
-        Top<br>
-        <input type='text' id="oillamp"/><br>
-
-    </div>
-    <div class="large-6 medium-6 small-6">
-        Bottom<br>
-        <input type='text' id="oillamp2"/><br>
-
-    </div>
-</div>
+<!--<div class="grid-x item" id="dispcase1div">-->
+<!--    <div class="large-12 medium-12 small-12">-->
+<!--        <h1>Display Case 1</h1>-->
+<!--    </div>-->
+<!--    <div class="large-12 medium-12 small-12">-->
+<!--        <h2>Animations</h2>-->
+<!--        <button onclick="cylon('dispcase1');">Cylon</button>-->
+<!--    </div>-->
+<!--    <div class="large-12 medium-12 small-12">-->
+<!--        <input type='text' id="dispcase1"/>-->
+<!--    </div>-->
+<!--</div>-->
+<!---->
+<!--<div class="grid-x item" id="dispcase2div">-->
+<!--    <div class="large-12 medium-12 small-12">-->
+<!--        <div class="grid-x">-->
+<!--            <div class="large-12 medium-12 small-12">-->
+<!--                <h1>Display Case 2</h1>-->
+<!--            </div>-->
+<!--            <div class="large-12 medium-12 small-12">-->
+<!--                <h2>Animations</h2>-->
+<!--                <button onclick="cylon('dispcase2');">Cylon</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="large-12 medium-12 small-12">-->
+<!--        <input type='text' id="dispcase2"/>-->
+<!--    </div>-->
+<!--</div>-->
+<!---->
+<!--<div class="grid-x item" id="oillampdiv">-->
+<!--    <div class="large-12 medium-12 small-12">-->
+<!--        <div class="grid-x">-->
+<!--            <div class="large-12 medium-12 small-12">-->
+<!--                <h1>Oil LAMP</h1>-->
+<!--            </div>-->
+<!--            <div class="large-12 medium-12 small-12">-->
+<!--                <h2>Animations</h2>-->
+<!--                <button onclick="spotlight();">Spotlight</button>-->
+<!--                <button onclick="dance();">Dance</button>-->
+<!--                <button onclick="horror('oillamp');">Horror</button>-->
+<!--                <button onclick="disco('oillamp');">Disco</button>-->
+<!--                <br>-->
+<!--                Animation Speed<br>-->
+<!--                <input id="speed" type="range" min="5" max="300" value="30" onchange="speedupdate(this);">-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="large-6 medium-6 small-6">-->
+<!--        Top<br>-->
+<!--        <input type='text' id="oillamp"/><br>-->
+<!---->
+<!--    </div>-->
+<!--    <div class="large-6 medium-6 small-6">-->
+<!--        Bottom<br>-->
+<!--        <input type='text' id="oillamp2"/><br>-->
+<!---->
+<!--    </div>-->
+<!--</div>-->
 
 <div class="grid-x menu" id="menu">
     <?php

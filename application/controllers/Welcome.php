@@ -46,6 +46,9 @@ class Welcome extends CI_Controller {
         $this->db->update('devices');
     }
 
+    public function putDeviceAni(){
+
+    }
 
 	public function garage(){
 
