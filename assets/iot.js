@@ -40,7 +40,7 @@ function fanon(){
     $.ajax(
         {
             "url": "http://10.0.0.156/T",
-            "type": "GET"
+            "type": "GET",
             "dataType": "HTML",
             "crossDomain": true,
             success: function (res) {
