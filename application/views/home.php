@@ -52,7 +52,7 @@ foreach($devices as $item) {
 }
 ?>
 
-<div class="grid-x item customdiv" id="customdiv">
+<div class="grid-x customdiv" id="customdiv">
 <div class="large-12 medium-12 small-12">
     <div class="grid-x">
         <div class="large-12 medium-12 small-12"><h1>CUSTOM</h1></div>
