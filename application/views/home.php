@@ -52,6 +52,17 @@ foreach($devices as $item) {
 }
 ?>
 
+<div class="grid-x item customdiv" id="customdiv">
+<div class="large-12 medium-12 small-12">
+    <div class="grid-x">
+        <div class="large-12 medium-12 small-12"><h1>CUSTOM</h1></div>
+        <div class="large-12 medium-12 small-12">
+            <h2>Animations</h2>
+            <button onclick="fanon()">FAN</button>
+        </div>
+    </div>
+</div>
+</div>
 
 <!--<div class="grid-x item" id="dispcase1div">-->
 <!--    <div class="large-12 medium-12 small-12">-->

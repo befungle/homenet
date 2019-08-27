@@ -36,6 +36,24 @@ function updateColor(did,device){
             }
         });
 }
+function fanon(){
+    $.ajax(
+        {
+            "url": "http://10.0.0.156/T",
+            "type": "GET"
+            "dataType": "HTML",
+            "crossDomain": true,
+            success: function (res) {
+                //res = JSON.parse(res);
+                //console.log(res.html);
+
+            },
+            error: function (res) {
+                console.error("ERROR!");
+                console.log(res);
+            }
+        });
+}
 function setAnimation(did,ani){
     var pushdata = {
         "did":did,
