@@ -7,7 +7,7 @@ $.ajax(
         "dataType": "HTML",
         "crossDomain": true,
         success: function (res) {
-            $(body).append(res);
+            $("#content").append(res);
             //res = JSON.parse(res);
             //console.log(res.html);
 
